@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Market Research Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            keyframes: {
+              'fade-in': {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+            },
+            animation: {
+              'fade-in': 'fade-in 0.5s ease-out',
+            }
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.1",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.5.0/",
+    "chart.js": "https://aistudiocdn.com/chart.js@^4.5.1"
+  }
+}
+</script>
+<style>
+  :root {
+    /* Base Layout Colors */
+    --bg-body: #f8fafc;        /* Off-white (Slate-50) for the main page background */
+    --bg-card: #ffffff;        /* Pure white for all cards, navs, and inputs */
+    --border-color: #e2e8f0; /* Light grey (Slate-200) for all borders */
+
+    /* Text Colors */
+    --text-primary-raw: #1e293b;  /* Dark (Slate-800) for headings */
+    --text-secondary-raw: #64748b; /* Lighter (Slate-500) for subtext, inactive tabs */
+
+    /* Accent Colors (From our mint/teal palette) */
+    --accent-primary-raw: #62B6CB;     /* Medium Teal - for buttons, active tabs */
+    --accent-secondary-raw: #1B4965;   /* Dark Teal/Navy - for hover, icons */
+    --accent-light: #BEE9E8;      /* Light Mint - for very subtle accents */
+    --primary-blue-raw: #5FA8D3;     /* Medium Sky Blue - kept for chart differentiation */
+    
+    /* Font */
+    --font-sans: 'Inter', sans-serif;
+
+    /* --- Semantic Variables (for component compatibility) --- */
+    --bg-main: var(--bg-body);
+    --bg-header: var(--bg-card);
+    --bg-input: var(--bg-card);
+    --bg-table-header: #f1f5f9; /* Slate-100, fits the new theme */
+
+    --text-primary: var(--text-primary-raw);
+    --text-dark-blue: var(--text-primary-raw); /* Alias for old var name */
+    --text-secondary: var(--text-secondary-raw);
+    --text-footer: var(--text-secondary-raw);
+    --text-on-accent: #ffffff;
+
+    --accent-color: var(--accent-primary-raw);
+    --accent-color-hover: var(--accent-secondary-raw);
+    
+    /* Direct variables for Chart.js */
+    --primary-teal: var(--accent-primary-raw);
+    --primary-blue: var(--primary-blue-raw);
+    --accent-primary: var(--accent-primary-raw);
+
+    /* Status */
+    --danger-red: #ef4444; /* Tailwind red-500 */
+    --danger-red-bg: #fee2e2; /* Tailwind red-100 */
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+  }
+
+  .prose-custom {
+    color: var(--text-primary);
+  }
+
+  .prose-custom a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .prose-custom a:hover {
+    color: var(--accent-color-hover);
+    text-decoration: underline;
+  }
+
+  .prose-custom h3 {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  
+  .prose-custom ul {
+      padding-left: 1.25rem;
+  }
+  
+  .icon {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2.5;
+    margin-right: 8px;
+    color: var(--text-secondary);
+  }
+
+  .nav-tab.active .icon {
+    color: var(--accent-primary);
+  }
+  .nav-tab.active span {
+    color: var(--accent-primary);
+  }
+  
+  .nav-tab:not(.active):hover {
+    color: var(--text-primary);
+  }
+
+  .nav-tab:not(.active):hover .icon {
+    color: var(--text-primary);
+  }
+</style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>
